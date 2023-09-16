@@ -1,13 +1,16 @@
 public class Main{
     public static void main(String[] args){
-
+        LinkedList ll = new LinkedList();
+        ll.addAtStart(0);
+        ll.addAtStart(65);
+        ll.print();
     }
 }
 
 abstract class List {
     public void print(){};                                                   
-    public boolean addAtStart(int element){return false;};                                
-    public boolean addAtEnd(int element){return false;};                                  
+    public void addAtStart(int element){};                                
+    public void addAtEnd(int element){};                                  
     public boolean addAtLocation(int location,int element){return false;};                
     public int delAtEnd() throws Exception{return -1;};
     public int delAtStart() throws Exception{return -1;};
@@ -41,15 +44,41 @@ class LinkedList extends List{
         this.head = null;
     }
 
-    public boolean addAtStart(int element){
-        Node newNode = new Node();
+    public void addAtStart(int element){            // void as return type , so even if there is no element in our linked list , we add it
+        Node newNode = new Node(element);
         if (head == null){
             head = newNode;
-            return true;
+            return;
         }
             newNode.next = head;
             head = newNode;
-            return true;
+    }
+
+    public void addAtEnd(int element){
+        Node newNode = new Node(element);
+        if(head == null){
+            head = newNode;
+            return;
+        }
+
+        Node currNode = head;
+        while(currNode.next != null){
+            currNode = currNode.next;
+        }
+        currNode.next = newNode;
+    }
+
+    public void print(){
+        if(head == null){
+            System.out.println("List is empty");
+            return;
+        }
+        Node currNode = head;
+        while(currNode != null){
+            System.out.print(currNode.data + "-> ");
+            currNode = currNode.next;
+        }
+        System.out.println("NULL");
     }
 
 }
