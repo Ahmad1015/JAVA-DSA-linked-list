@@ -35,5 +35,21 @@ class Node {
 }
 
 class LinkedList extends List{
-    
+    Node head;
+
+    public LinkedList() {
+        this.head = null;
+    }
+
+    public boolean addAtStart(int element){
+        Node newNode = new Node();
+        if (head == null){
+            head = newNode;
+            return true;
+        }
+            newNode.next = head;
+            head = newNode;
+            return true;
+    }
+
 }
