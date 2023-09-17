@@ -81,4 +81,39 @@ class LinkedList extends List{
         System.out.println("NULL");
     }
 
+    public boolean addAtLocation(int location,int element){
+        // Fill in the rest
+        return false;
+    }
+
+    public int delAtEnd() throws Exception{
+        // Fill in the rest
+        return -1;
+    }
+
+    public int delAtStart() throws Exception{
+        // Fill in the rest
+        return -1;
+    }
+    public int delAtLocation(int location) throws Exception{
+     // Fill in the rest
+        return -1;
+    }
+    public int LinearSearch(int element){
+        // Fill in the rest
+        return -1;
+    }                                  
+    public int binarySearch(int element){
+        // Fill in the rest
+        return -1;
+    }                                  
+    public boolean sorting(int order){
+     // Fill in the rest
+        return false;
+    }                                 
+    public void updateArray(int element,int location){
+        // Fill in the rest
+    };
+
+
 }
