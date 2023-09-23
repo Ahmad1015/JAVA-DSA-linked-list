@@ -84,16 +84,16 @@ class LinkedList extends List{
         return false;
     }
 
-    public int delAtEnd() throws Exception{
+    public Node delAtEnd() throws Exception{
         // Fill in the rest
         return -1;
     }
 
-    public int delAtStart() throws Exception{
+    public Node delAtStart() throws Exception{
         // Fill in the rest
         return -1;
     }
-    public int delAtLocation(int location) throws Exception{
+    public Node delAtLocation(int location) throws Exception{
      // Fill in the rest
         return -1;
     }
