@@ -12,14 +12,12 @@ abstract class List {
     public void addAtStart(int element){};                                
     public void addAtEnd(int element){};                                  
     public boolean addAtLocation(int location,int element){return false;};                
-    public int delAtEnd() throws Exception{return -1;};
-    public int delAtStart() throws Exception{return -1;};
-    public int delAtLocation(int location) throws Exception{return -1;};
-    public int LinearSearch(int element){return -1;};                                  
-    public int binarySearch(int element){return -1;};                                  
+    public Node delAtEnd() throws Exception{return -1;};
+    public Node delAtStart() throws Exception{return -1;};
+    public Node delAtLocation(int location) throws Exception{return -1;};
+    abstract public Node Search(int element);                                                                 
     public boolean sorting(int order){return false;};                                     
     public void updateArray(int element,int location){};                              
-    
 }
 
 class Node {
@@ -44,7 +42,7 @@ class LinkedList extends List{
         this.head = null;
     }
 
-    public void addAtStart(int element){            // void as return type , so even if there is no element in our linked list , we add it
+    public void addAtStart(int element){            
         Node newNode = new Node(element);
         if (head == null){
             head = newNode;
@@ -78,7 +76,7 @@ class LinkedList extends List{
             System.out.print(currNode.data + "-> ");
             currNode = currNode.next;
         }
-        System.out.println("NULL");
+        System.out.println("null");
     }
 
     public boolean addAtLocation(int location,int element){
@@ -99,14 +97,20 @@ class LinkedList extends List{
      // Fill in the rest
         return -1;
     }
-    public int LinearSearch(int element){
-        // Fill in the rest
-        return -1;
-    }                                  
-    public int binarySearch(int element){
-        // Fill in the rest
-        return -1;
-    }                                  
+    public Node search(int element){
+            if (head==null){
+                System.out.println("List is empty");
+                return null;
+            }
+            Node currNode = head;
+            while(currNode!=null){
+                if (currNode.data == element)
+                    return currNode;
+                currNode = currNode.next;
+            }
+            return null;
+    } 
+
     public boolean sorting(int order){
      // Fill in the rest
         return false;
