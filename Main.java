@@ -4,6 +4,8 @@ public class Main{
         ll.addAtStart(0);
         ll.addAtStart(65);
         ll.print();
+        ll.delAtStart();
+        ll.print();
     }
 }
 
@@ -12,10 +14,10 @@ abstract class List {
     public void addAtStart(int element){};                                
     public void addAtEnd(int element){};                                  
     public boolean addAtLocation(int location,int element){return false;};                
-    public Node delAtEnd() throws Exception{return -1;};
-    public Node delAtStart() throws Exception{return -1;};
-    public Node delAtLocation(int location) throws Exception{return -1;};
-    abstract public Node Search(int element);                                                                 
+    public Node delAtEnd(){return null;};
+    public Node delAtStart(){return null;};
+    public Node delAtLocation(int location){return null;};
+    abstract public Node search(int element);                                                                 
     public boolean sorting(int order){return false;};                                     
     public void updateArray(int element,int location){};                              
 }
@@ -37,6 +39,7 @@ class Node {
 
 class LinkedList extends List{
     Node head;
+    int size;
 
     public LinkedList() {
         this.head = null;
@@ -84,18 +87,25 @@ class LinkedList extends List{
         return false;
     }
 
-    public Node delAtEnd() throws Exception{
+    public Node delAtEnd() {
         // Fill in the rest
-        return -1;
+        return null;
     }
 
-    public Node delAtStart() throws Exception{
-        // Fill in the rest
-        return -1;
+    public Node delAtStart(){                               
+        if (head==null){
+                System.out.println("List is empty");
+                return null;
+        }
+        Node currNode = head;
+        head = currNode.next;
+        size--;
+        return currNode;
     }
-    public Node delAtLocation(int location) throws Exception{
+
+    public Node delAtLocation(int location){
      // Fill in the rest
-        return -1;
+        return null;
     }
     public Node search(int element){
             if (head==null){
