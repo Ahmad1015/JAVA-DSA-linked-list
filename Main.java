@@ -19,7 +19,8 @@ abstract class List {
     public Node delAtLocation(int location){return null;};
     abstract public Node search(int element);                                                                 
     public boolean sorting(int order){return false;};                                     
-    public void updateArray(int element,int location){};                              
+    public void updateArray(int element,int location){};
+    public Node removeDuplicatesFromSortedList(){};
 }
 
 class Node {
@@ -128,6 +129,19 @@ class LinkedList extends List{
     public void updateArray(int element,int location){
         // Fill in the rest
     };
+    public Node removeDuplicatesFromSortedList(){
+        if (head==null)
+            return head;
+        Node curr = head;
+        while(curr.next!=null){
+            if (curr.data == curr.next.data){
+                curr.next = curr.next.next;
+            }
+            else
+                curr = curr.next;
+        }
+        return head;
+    }
 
 
 }
