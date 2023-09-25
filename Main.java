@@ -145,7 +145,7 @@ class LinkedList extends List{
     }
 
     public void reverseLinkedList(){
-        
+        hello
     }
 
 
