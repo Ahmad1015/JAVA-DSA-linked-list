@@ -1,10 +1,13 @@
 public class Main{
     public static void main(String[] args){
         LinkedList ll = new LinkedList();
-        ll.addAtStart(0);
-        ll.addAtStart(65);
+        ll.addAtStart(5);
+        ll.addAtStart(4);
+        ll.addAtStart(3);
+        ll.addAtStart(2);
+        ll.addAtStart(1);
         ll.print();
-        ll.delAtStart();
+        ll.reverseLinkedList();
         ll.print();
     }
 }
@@ -145,7 +148,24 @@ class LinkedList extends List{
     }
 
     public void reverseLinkedList(){
-        hello
+        if(head == null){
+            System.out.println("List is empty");
+            return;
+        }
+        else{
+            Node curr = head;
+            Node nextcurr = curr.next;
+            Node temp;
+            while(nextcurr!=null){
+                temp = nextcurr.next;
+                nextcurr.next = curr;
+                curr.next = null;
+                curr = nextcurr;
+                nextcurr = temp;
+            }
+            head = curr;
+
+        }
     }
 
 
