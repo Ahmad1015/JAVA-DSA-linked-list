@@ -159,12 +159,11 @@ class LinkedList extends List{
             while(nextcurr!=null){
                 temp = nextcurr.next;
                 nextcurr.next = curr;
-                curr.next = null;
                 curr = nextcurr;
                 nextcurr = temp;
             }
+            head.next = null;
             head = curr;
-
         }
     }
 
