@@ -42,7 +42,7 @@ abstract class List {
     public Node delAtLocation(int location){return null;};
     abstract public Node search(int element);                                                                 
     public boolean sorting(int order){return false;};                                     
-    public void updateArray(int element,int location){};
+    public void UpdatedLinkedList(int element,int location){};
     public Node removeDuplicatesFromSortedList(){return null;};
     public void reverseLinkedList(){};
 }
@@ -171,8 +171,22 @@ class LinkedList extends List{
      // Fill in the rest
         return false;
     }                                 
-    public void updateArray(int element,Node location){
-        
+    public void UpdatedLinkedList(int updatedValue,int elementToFind){
+        Node result = search(elementToFind);
+        if (result == null){
+            System.out.println("List is empty");
+            return;
+        }
+        else{
+            Node currNode = head;
+            while(currNode!=null){
+                if (currNode == result)
+                    currNode.data = updatedValue;
+                currNode = currNode.next;
+            }
+        }
+
+        }
     };
     public Node removeDuplicatesFromSortedList(){
         if (head==null)
