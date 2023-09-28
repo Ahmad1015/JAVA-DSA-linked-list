@@ -32,18 +32,17 @@ public class Main{
 }
 
 abstract class List {
-    public void print(){};                                                   
-    public void addAtStart(int element){};                                
-    public void addAtEnd(int element){};                                  
+    abstract public void print();                                                   
+    abstract public void addAtStart(int element);                                
+    abstract public void addAtEnd(int element);                                  
     public boolean addAtLocation(int location,int element){return false;};                
     public Node delAtEnd(){return null;};
     public Node delAtStart(){return null;};
     public Node delAtLocation(int location){return null;};
     abstract public Node search(int element);                                                                 
     public boolean sorting(int order){return false;};                                     
-    public void UpdatedLinkedList(int element,int location){};
+    abstract public void UpdatedLinkedList(int element,int elementToFind);
     public Node removeDuplicatesFromSortedList(){return null;};
-    public void reverseLinkedList(){};
 }
 
 class Node {
