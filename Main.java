@@ -6,8 +6,22 @@ public class Main{
         ll.addAtStart(3);
         ll.addAtStart(2);
         ll.addAtStart(1);
-        ll.print();
         
+        LinkedList l2 = new LinkedList();
+        l2.addAtStart(50);
+        l2.addAtStart(40);
+        l2.addAtStart(30);
+        l2.addAtStart(20);
+        l2.addAtStart(10);
+        
+        ll.print();
+        LinkedList l3 = mergeLinkedList(ll, l2);
+        System.out.println("The new List");
+        l3.print();
+        System.out.println("List 1");
+        ll.print();
+        System.out.println("List 2");
+        l2.print();
     }
     public static LinkedList LinkedListReverse(LinkedList lObject){
         if(lObject.head == null){
@@ -28,6 +42,24 @@ public class Main{
             lObject.head = curr;
         }
         return lObject;
+    }
+    public static LinkedList mergeLinkedList(LinkedList object_1,LinkedList object_2){
+        LinkedList temp = clone(object_1);
+        temp.tail.next = object_2.head;
+        temp.tail = object_2.tail;
+        return temp;
+    }
+    public static LinkedList clone(LinkedList object_1){
+        LinkedList temp = new LinkedList();
+        if(object_1.head == null){
+            return temp;
+        }
+        Node currNode = object_1.head;
+        while(currNode != null){
+            temp.addAtEnd(currNode.data);
+            currNode = currNode.next;
+        }
+        return temp;
     }
 }
 
@@ -72,16 +104,16 @@ class LinkedList extends List{
 
     public void addAtStart(int element){            
         Node newNode = new Node(element);
-        if (head == null){
-            head = newNode;
-            return;
-        }
             newNode.next = head;
             head = newNode;
+            if (tail == null)
+                tail=head ;
+            size++;
     }
 
     public void addAtEnd(int element){
         Node newNode = new Node(element);
+        size++;
         if(head == null){
             head = newNode;
             tail = newNode;
