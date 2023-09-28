@@ -7,8 +7,10 @@ public class Main{
         ll.addAtStart(2);
         ll.addAtStart(1);
         ll.print();
+        ll=LinkedListReverse(ll);
+        ll.print();
     }
-    public LinkedList LinkedListReverse(LinkedList lObject){
+    public static LinkedList LinkedListReverse(LinkedList lObject){
         if(lObject.head == null){
             System.out.println("List is empty");
             return lObject;
@@ -84,14 +86,14 @@ class LinkedList extends List{
         Node newNode = new Node(element);
         if(head == null){
             head = newNode;
+            tail = newNode;
             return;
         }
-
-        Node currNode = head;
-        while(currNode.next != null){
-            currNode = currNode.next;
+        else{
+            tail.next = newNode;
+            tail= newNode;
         }
-        currNode.next = newNode;
+        
     }
 
     public void print(){
