@@ -171,8 +171,8 @@ class LinkedList extends List{
      // Fill in the rest
         return false;
     }                                 
-    public void updateArray(int element,int location){
-        // Fill in the rest
+    public void updateArray(int element,Node location){
+        
     };
     public Node removeDuplicatesFromSortedList(){
         if (head==null)
