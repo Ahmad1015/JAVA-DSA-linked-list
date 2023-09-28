@@ -7,11 +7,25 @@ public class Main{
         ll.addAtStart(2);
         ll.addAtStart(1);
         ll.print();
-        ll.reverseLinkedList();
-        ll.print();
     }
     public LinkedList LinkedListReverse(LinkedList lObject){
-        
+        if(lObject.head == null){
+            System.out.println("List is empty");
+            return lObject;
+        }
+        else{
+            Node curr = lObject.head;
+            Node nextcurr = curr.next;
+            Node temp;
+            while(nextcurr!=null){
+                temp = nextcurr.next;
+                nextcurr.next = curr;
+                curr = nextcurr;
+                nextcurr = temp;
+            }
+            lObject.head.next = null;
+            lObject.head = curr;
+        }
         return lObject;
     }
 }
@@ -171,26 +185,5 @@ class LinkedList extends List{
         }
         return head;
     }
-
-    public void reverseLinkedList(){
-        if(head == null){
-            System.out.println("List is empty");
-            return;
-        }
-        else{
-            Node curr = head;
-            Node nextcurr = curr.next;
-            Node temp;
-            while(nextcurr!=null){
-                temp = nextcurr.next;
-                nextcurr.next = curr;
-                curr = nextcurr;
-                nextcurr = temp;
-            }
-            head.next = null;
-            head = curr;
-        }
-    }
-
 
 }
