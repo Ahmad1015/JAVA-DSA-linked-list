@@ -45,9 +45,11 @@ class Node {
 class LinkedList extends List{
     Node head;
     int size;
+    Node tail;
 
     public LinkedList() {
         this.head = null;
+        this.tail = null;
     }
 
     public void addAtStart(int element){            
@@ -93,7 +95,18 @@ class LinkedList extends List{
     }
 
     public Node delAtEnd() {
-        // Fill in the rest
+        if (head == null){
+            System.out.println("List is Empty\nCannot Perform this Action");
+            return null;
+        }
+        else if (head == tail){
+            head = null;
+            tail = null;
+            size--;
+        }
+        else{
+            
+        }
         return null;
     }
 
