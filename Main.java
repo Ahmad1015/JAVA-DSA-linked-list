@@ -7,8 +7,7 @@ public class Main{
         ll.addAtStart(2);
         ll.addAtStart(1);
         ll.print();
-        ll=LinkedListReverse(ll);
-        ll.print();
+        
     }
     public static LinkedList LinkedListReverse(LinkedList lObject){
         if(lObject.head == null){
@@ -187,7 +186,7 @@ class LinkedList extends List{
         }
 
         }
-    };
+    
     public Node removeDuplicatesFromSortedList(){
         if (head==null)
             return head;
