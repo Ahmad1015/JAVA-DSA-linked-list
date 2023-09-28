@@ -179,8 +179,9 @@ class LinkedList extends List{
         return currNode;
     }
 
-    public Node delAtLocation(int location){
-     // Fill in the rest
+    public Node delAtLocation(int elementToFind){
+        Node toRemove = search(elementToFind);
+        // Complete Later
         return null;
     }
     public Node search(int element){
