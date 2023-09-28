@@ -10,6 +10,10 @@ public class Main{
         ll.reverseLinkedList();
         ll.print();
     }
+    public LinkedList LinkedListReverse(LinkedList lObject){
+        
+        return lObject;
+    }
 }
 
 abstract class List {
@@ -105,7 +109,15 @@ class LinkedList extends List{
             size--;
         }
         else{
-            
+            Node curr = head;
+            while(curr.next!=tail){
+                curr=curr.next;
+                Node Temp = tail;
+                curr.next = null;
+                tail = curr;
+                size--;
+                return Temp;
+            }
         }
         return null;
     }
