@@ -7,21 +7,25 @@ public class Main{
         ll.addAtStart(2);
         ll.addAtStart(1);
         
-        LinkedList l2 = new LinkedList();
-        l2.addAtStart(50);
-        l2.addAtStart(40);
-        l2.addAtStart(30);
-        l2.addAtStart(20);
-        l2.addAtStart(10);
+
+
+
+
+        // LinkedList l2 = new LinkedList();
+        // l2.addAtStart(50);
+        // l2.addAtStart(40);
+        // l2.addAtStart(30);
+        // l2.addAtStart(20);
+        // l2.addAtStart(10);
         
-        ll.print();
-        LinkedList l3 = mergeLinkedList(ll, l2);
-        System.out.println("The new List");
-        l3.print();
-        System.out.println("List 1");
-        ll.print();
-        System.out.println("List 2");
-        l2.print();
+        // ll.print();
+        // LinkedList l3 = mergeLinkedList(ll, l2);
+        // System.out.println("The new List");
+        // l3.print();
+        // System.out.println("List 1");
+        // ll.print();
+        // System.out.println("List 2");
+        // l2.print();
     }
     public static LinkedList LinkedListReverse(LinkedList lObject){
         if(lObject.head == null){
@@ -126,6 +130,33 @@ class LinkedList extends List{
         
     }
 
+    public boolean addAtLocation(int location,int element){
+        if(location>=0 &&location<=size){                       // Validation if location is valid or not
+            if(location == 0)
+                addAtStart(element);
+            else if (location == size)
+                addAtEnd(element);
+            else{
+                int counter = 0;
+                Node curr = head;
+                Node temp = new Node(element);
+                while(curr.next!=null){
+                    if (counter==location-1){
+                        temp.next = curr.next;
+                        curr.next = temp;
+                    }
+                    counter++;
+                    curr = curr.next;
+                }
+            }
+            return true;
+        }
+        else{
+            System.out.println("Location is not Valid");
+        }                        
+        return false;
+    }
+
     public void print(){
         if(head == null){
             System.out.println("List is empty");
@@ -139,10 +170,7 @@ class LinkedList extends List{
         System.out.println("null");
     }
 
-    public boolean addAtLocation(int location,int element){
-        // Fill in the rest
-        return false;
-    }
+
 
     public Node delAtEnd() {
         if (head == null){
