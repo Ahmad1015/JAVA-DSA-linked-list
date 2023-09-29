@@ -1,13 +1,12 @@
 public class Main{
     public static void main(String[] args){
         LinkedList ll = new LinkedList();
-        ll.addAtStart(5);
-        ll.addAtStart(4);
-        ll.addAtStart(3);
-        ll.addAtStart(2);
+        ll.addAtStart(21);
+        ll.addAtStart(20);
         ll.addAtStart(1);
+        ll.addAtStart(0);
+        ll.addAtStart(50);
         
-
         // LinkedList l2 = new LinkedList();
         // l2.addAtStart(50);
         // l2.addAtStart(40);
@@ -73,7 +72,7 @@ abstract class List {
     public Node delAtStart(){return null;};
     public Node delAtLocation(int location){return null;};
     abstract public Node search(int element);                                                                 
-    public boolean sorting(int order){return false;};                                     
+    abstract public void sorting(int order);                                     
     abstract public void UpdatedLinkedList(int element,int elementToFind);
     public Node removeDuplicatesFromSortedList(){return null;};
 }
@@ -168,8 +167,6 @@ class LinkedList extends List{
         System.out.println("null");
     }
 
-
-
     public Node delAtEnd() {
         if (head == null){
             System.out.println("List is Empty\nCannot Perform this Action");
@@ -238,6 +235,7 @@ class LinkedList extends List{
         }
         return removed;
     }
+    
     public Node search(int element){
             if (head==null){
                 System.out.println("List is empty");
@@ -252,10 +250,24 @@ class LinkedList extends List{
             return null;
     } 
 
-    public boolean sorting(int order){
-     // Fill in the rest
-        return false;
-    }                                 
+    public void sorting(int order){
+            Node curr = head;
+            Node curr2 = head;
+            Node temp = new Node();
+            while(curr2!=null){
+                while(curr.next!=null){
+                     if ((order == 1 && curr.data > curr.next.data) || (order == 2 && curr.data < curr.next.data)) {
+                        temp.data = curr.data;
+                        curr.data = curr.next.data;
+                        curr.next.data = temp.data;
+                    }
+                    curr=curr.next;
+                }
+                curr = head;
+                curr2 = curr2.next;
+            }    
+    }
+
     public void UpdatedLinkedList(int updatedValue,int elementToFind){
         Node result = search(elementToFind);
         if (result == null){
