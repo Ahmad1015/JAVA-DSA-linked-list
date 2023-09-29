@@ -8,9 +8,6 @@ public class Main{
         ll.addAtStart(1);
         
 
-
-
-
         // LinkedList l2 = new LinkedList();
         // l2.addAtStart(50);
         // l2.addAtStart(40);
@@ -186,13 +183,13 @@ class LinkedList extends List{
         else{
             Node curr = head;
             while(curr.next!=tail){
-                curr=curr.next;
+                curr=curr.next;}
                 Node Temp = tail;
                 curr.next = null;
                 tail = curr;
                 size--;
                 return Temp;
-            }
+            
         }
         return null;
     }
@@ -208,10 +205,38 @@ class LinkedList extends List{
         return currNode;
     }
 
-    public Node delAtLocation(int elementToFind){
-        Node toRemove = search(elementToFind);
-        // Complete Later
-        return null;
+    public Node delAtLocation(int location){
+        Node removed = head;
+        if(location>=0 && location<size){
+            if (location==0)
+                delAtStart();
+            else if(location==size-1)
+                delAtEnd();
+            else{
+                int counter = 0;
+                Node curr = head;
+                while(curr.next!=null){
+                    if (counter==location-1){
+                        if(curr.next.next!=null){
+                            removed = curr.next;
+                            curr.next = curr.next.next;
+                        }
+                        else{
+                            removed = curr.next;
+                            curr.next = null;
+                        }     
+                        size--;
+                    }
+                    counter++;
+                    curr = curr.next;
+                }
+            }
+        }
+        else{
+            System.out.println("Invalid Location");
+            return null;
+        }
+        return removed;
     }
     public Node search(int element){
             if (head==null){
