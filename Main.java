@@ -144,6 +144,7 @@ class LinkedList extends List{
                     if (counter==location-1){
                         temp.next = curr.next;
                         curr.next = temp;
+                        size++;
                     }
                     counter++;
                     curr = curr.next;
